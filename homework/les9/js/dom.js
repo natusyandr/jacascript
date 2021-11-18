@@ -62,19 +62,20 @@ function addBooks(booksArr, element){
     let booksSection = document.createElement('div');
     let itemTitle = document.createElement('h2');
     itemTitle.innerText = item.genreName;
+
     let books = document.createElement('div');
     books.classList.add('books');
     booksSection.append(itemTitle, books);
     for (let book of item.books){
       let article = document.createElement('article');
-      article.innerHtml = `
-      <span>${booksArr.title}</span>
-      <img src="${booksArr.img}">
-      <p>${booksArr.description}</p>
+      article.innerHTML = `
+      <span>${book.title}</span>
+      <img src="${book.img}">
+      <p>${book.description}</p>
       <a>Читать</a>`
       books.append(article);
     }
-    document.body.append(books);
+    document.body.append(booksSection);
   }
 };
 addBooks(booksByGenre, booksSection);

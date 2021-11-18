@@ -63,24 +63,24 @@
 
  function generateTable(arr){
      let table = document.createElement('table');
-     let tr = document.createElement('tr');
+    /* let tr = document.createElement('tr');
      let th = document.createElement('th');
      let td = document.createElement('tb');
-     table.append(tr, th, td);
+     table.append(tr, th, td); */
+     let trRow = table.insertRow();
      for (let key in arr[0]) {
-       let trRow = tr.insertRow();
        let cell = trRow.insertCell();
-       cell.innerText = key.toUpperCase;
+       cell.innerText = key.toUpperCase();
          // в переменной key - названия свойств
          // первый ряд таблицы (заголовки)
      }
      // генерация рядов (один объект - один ряд)
      for (let obj of arr) {
-       let row = tr.insertRow();
+       let row = table.insertRow();
          // создание ряда
          for (let key in obj) {
-           let tdKey = td.insertCell();
-           tdKey.ineerText = key;
+           let tdKey = row.insertCell();
+           tdKey.innerText = obj[key];
              // создание ячейки
              // текст ячейки: obj[key]
          }
