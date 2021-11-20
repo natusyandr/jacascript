@@ -36,12 +36,22 @@ function infoCard(arr) {
 <p>${obj.name}</p>
 <p>${obj.age}</p>
 <p>${obj.color}</p>
-  `
+  `;
+  let vacInfo = document.createElement('div');
+  for (let obj of animals) {
+    if (obj.additional_info.vaccinations !== 'true')
+      vacInfo.innerText = "Прививки нет";
+    else vacInfo.innerText = "Прививка есть";
+    if (obj.additional_info.passport !== 'true')
+      vacInfo.innerText = "Паспорта нет";
+    else vacInfo.innerText = "Паспорт есть";
+  };
+
   /*if (obj.additional_info.vaccinations === 'true')
     card.innerText = "Прививка есть";
    else (obj.additional_info.vaccinations === 'false')
     card.innerText = "Прививки нет"; */
-  container.append(card);
+  container.append(vacInfo, card);
 }
 }
 document.body.append(container);
