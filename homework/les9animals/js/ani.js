@@ -38,20 +38,21 @@ function infoCard(arr) {
 <p>${obj.color}</p>
   `;
   let vacInfo = document.createElement('div');
-  for (let obj of animals) {
-    if (obj.additional_info.vaccinations !== 'true')
+  // for (let obj of animals) {
+    if (obj.additional_info.vaccinations === false)
       vacInfo.innerText = "Прививки нет";
     else vacInfo.innerText = "Прививка есть";
-    if (obj.additional_info.passport !== 'true')
-      vacInfo.innerText = "Паспорта нет";
-    else vacInfo.innerText = "Паспорт есть";
-  };
+  let pasInfo = document.createElement('div');
+    if (obj.additional_info.passport === false)
+      pasInfo.innerText = "Паспорта нет";
+    else pasInfo.innerText = "Паспорт есть";
+  //};
 
   /*if (obj.additional_info.vaccinations === 'true')
     card.innerText = "Прививка есть";
    else (obj.additional_info.vaccinations === 'false')
     card.innerText = "Прививки нет"; */
-  container.append(vacInfo, card);
+  container.append(card, vacInfo, pasInfo);
 }
 }
 document.body.append(container);
